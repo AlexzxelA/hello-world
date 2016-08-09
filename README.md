@@ -54,18 +54,23 @@ You will create three tiers of credentials (each with multiple components: RSA k
 2. Second, generate application credentials. We call this level an Atom.  
 3. Create your Client server credentials.  We call this level an Edge-Client. 
 
-## Getting Started - Mac
-Install the Beame SDK by running `npm install -g beame-sdk` 
-Register as a developer. 
-Copy the command from the email. It should look like this: `beame creds createDeveloper --developerFqdn ndfxfyerylk6uvra.v1.beameio.net --uid 1d138bfc-4a37-48e7-a60d-0190037fda5f` 
-Run `beame servers startFirstBeameNode` it will print out to you something that looks like this: 
-`Server started on https://fdddr5ggsyzhk6m8.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net this is a publicly accessible address` 
-Our demo has two features, chat, or file server: 
-a. To access the chat, just copy the URL to your browser. (By the way, you can freely send it to other people on other networks. The server is global and the TLS is real). 
-To access the file share function, open the url /shared. 
+## Getting Started - Mac 
 
-## Getting Started - Windows
-Before running `npm install -g beame-sdk` please make sure you have OpenSSL installed in C:\OpenSSL-Win64 . One of the possible ways of installing OpenSSL is described below. The procedure was tested on Microsoft Windows Server 2012 R2 Standard . 
+ - Install the Beame SDK by running `npm install -g beame-sdk` 
+ - Register as a developer. 
+ - Copy the command from the email. It should look like this: `beame creds createDeveloper --developerFqdn ndfxfyerylk6uvra.v1.beameio.net --uid 1d138bfc-4a37-48e7-a60d-0190037fda5f` 
+ - Run `beame servers startFirstBeameNode` it will print out to you something that looks like this: 
+`Server started on https://fdddr5ggsyzhk6m8.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net this is a publicly accessible address` 
+
+Our demo has two features, chat, or file server: 
+ - To access the chat, just copy the URL to your browser. (By the way, you can freely send it to other people on other networks. The server is global and the TLS is real). 
+ - To access the file share function, open the `url/shared`. 
+
+## Getting Started - Windows 
+
+Before running `npm install -g beame-sdk` please make sure you have OpenSSL installed in `C:\OpenSSL-Win64` . 
+One of the possible ways of installing OpenSSL is described below. The procedure was tested on Microsoft Windows Server 2012 R2 Standard . 
+
 ### Install Visual C++ Build Tools and Python 2.7: 
 `npm install --global --production windows-build-tools`
 
