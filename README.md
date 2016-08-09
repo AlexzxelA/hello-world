@@ -55,25 +55,29 @@ You will create three tiers of credentials (each with multiple components: RSA k
 3. Create your Client server credentials.  We call this level an Edge-Client. 
 
 ## Getting Started - Mac
-Install the Beame SDK by running npm install -g beame-sdk 
-Register as a developer.
-Copy the command from the email. It should look like this: beame creds createDeveloper --developerFqdn ndfxfyerylk6uvra.v1.beameio.net --uid 1d138bfc-4a37-48e7-a60d-0190037fda5f
-Run beame servers startFirstBeameNode it will print out to you something that looks like this: Server started on https://fdddr5ggsyzhk6m8.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net this is a publicly accessible address
-Our demo has two features, chat, or file server: a. To access the chat, just copy the URL to your browser. (By the way, you can freely send it to other people on other networks. The server is global and the TLS is real). To access the file share function, open the url /shared.
-Getting Started - Windows
-Before running npm install -g beame-sdk please make sure you have OpenSSL installed in C:\OpenSSL-Win64 . One of the possible ways of installing OpenSSL is described below. The procedure was tested on Microsoft Windows Server 2012 R2 Standard .
-### Install Visual C++ Build Tools and Python 2.7:
-npm install --global --production windows-build-tools
+Install the Beame SDK by running `npm install -g beame-sdk` 
+Register as a developer. 
+Copy the command from the email. It should look like this: `beame creds createDeveloper --developerFqdn ndfxfyerylk6uvra.v1.beameio.net --uid 1d138bfc-4a37-48e7-a60d-0190037fda5f` 
+Run `beame servers startFirstBeameNode` it will print out to you something that looks like this: 
+`Server started on https://fdddr5ggsyzhk6m8.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net this is a publicly accessible address` 
+Our demo has two features, chat, or file server: 
+a. To access the chat, just copy the URL to your browser. (By the way, you can freely send it to other people on other networks. The server is global and the TLS is real). 
+To access the file share function, open the url /shared. 
 
-### Upgrade npm:
-npm -g install npm@latest
+## Getting Started - Windows
+Before running `npm install -g beame-sdk` please make sure you have OpenSSL installed in C:\OpenSSL-Win64 . One of the possible ways of installing OpenSSL is described below. The procedure was tested on Microsoft Windows Server 2012 R2 Standard . 
+### Install Visual C++ Build Tools and Python 2.7: 
+`npm install --global --production windows-build-tools`
+
+### Upgrade npm: 
+`npm -g install npm@latest`
 
 ### ( Install Perl from http://downloads.activestate.com/ActivePerl/releases/5.24.0.2400/ActivePerl-5.24.0.2400-MSWin32-x64-300558.exe or another source
 ###   Perl is needed for building OpenSSL )
 
 ### Install OpenSSL:
  ( Download and extract https://www.openssl.org/source/openssl-1.0.1t.tar.gz ) 
- Using "Visual C++ 2015 x64 Native Build Tools Command Prompt" under C:\Program Files (x86)\Microsoft Visual C++ Build `Tools\` in the OpenSSL directory
+ Using "Visual C++ 2015 x64 Native Build Tools Command Prompt" under C:\Program Files (x86)\Microsoft Visual C++ Build  `Tools\` in the OpenSSL directory
     `perl Configure VC-WIN64A no-asm --prefix=C:\OpenSSL-Win64`
     `.\ms\do_win64a.bat`
     `nmake -f ms\ntdll.mak clean`
@@ -94,8 +98,8 @@ See the example folder to copy-paste and try it for yourself!
  - Encrypt arbitrary data so that only a specified entity can decrypt it
  - Decrypt arbitrary data that was sent to one of the entities you own (encrypted with one of your public keys)
  - Sign arbitrary data with any of your certificates 
- - 
-## High Level Architecture: 
+
+## High Level Architecture 
 
 All routable nodes created with the Beame SDK are clients of Beame services. From the application perspective, they are HTTPS servers. 
 
@@ -139,16 +143,14 @@ CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, 
 
 
 
-There are three interleaved flows in the provisioning process: 
-CMPS flow - process takes place on the Customer provisioning station, controls the whole process; 
-Atom flow - background process controlled by Customer’s Atom; 
-Client flow - process that takes place on the mobile device. Requires corresponding mobile Beame SDK services. 
-Something that looks like this: Server started on https://fdddr5ggsyzhk6m8.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net this is a publicly accessible address 
-Our demo has two features, chat, or file server: 
-a. To access the chat just copy the URL to your browser. (Btw you can freely send it to other people on other networks, server is global TLS is real); 
-b. To access the file share function open the url /shared ie. https://fdff......beameio.net/shared Enjoy! 
+### There are three interleaved flows in the provisioning process: 
+ - CMPS flow - process takes place on the Customer provisioning station, controls the whole process; 
+ - Atom flow - background process controlled by Customer’s Atom; 
+ - Client flow - process that takes place on the mobile device. Requires corresponding mobile Beame SDK services. 
+
 
 ## Beame CLI
+
 If you have completed the "Getting Started The Easy Way" above, you can feel free to use all of what's described below. At any moment, using beame-sdk, you can see all credentials you currently own by running: 
 `beame creds show`
 ### Beame CLI - Credentials
