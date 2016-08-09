@@ -16,12 +16,12 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
 3. Get a matching certificate from Beame (signed by a root CA).
 
 ## Table of Contents
- - [System Requirements](#System-Requirements)
- - [Beame Infrastructure Overview](#infrastracture-overview)
- - [Easy Installation Instructions](#installation-instructions)
- - [Getting Started - Mac](#start-mac)
- - [Getting Started - Windows](#start-windows)
- - [Common Uses for Beame SDK](#common-use)
+ - [System Requirements](#system-sequirements)
+ - [Beame Infrastructure Overview](#beame-infrastracture-overview)
+ - [Easy Installation Instructions](#easy-installation-instructions)
+ - [Getting Started - Mac](#getting-start---mac)
+ - [Getting Started - Windows](#getting-started---windows)
+ - [Common Uses for Beame SDK](#common-uses-for-beame-sdk)
  - [High Level Architecture](#HLA)
  - [Beame Network Infrastructure](#network-structure)
  - [Customizable Provisioning Workflow](#provision-workflow)
@@ -151,9 +151,10 @@ CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, 
 
 ## Beame CLI
 
-If you have completed the "Getting Started The Easy Way" above, you can feel free to use all of what's described below. At any moment, using beame-sdk, you can see all credentials you currently own by running: 
-`beame creds show`
-### Beame CLI - Credentials
+If you have completed the "Getting Started The Easy Way" above, you can feel free to use all of what's described below. 
+At any moment, using beame-sdk, you can see all credentials you currently own by running: 
+`beame creds show` 
+### Beame CLI - Credentials 
 The following commands are used for acquiring and manipulating certificates. 
 `beame creds list [--type {developer|atom|edgeclient}] [--fqdn fqdn] [--format {text|json}]` - list certificates
 `beame creds show [--type {developer|atom|edgeclient}] [--fqdn fqdn] [--format {text|json}]` - show certificate details
