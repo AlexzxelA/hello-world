@@ -19,7 +19,7 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
  - [System Requirements](#system-sequirements)
  - [Beame Infrastructure Overview](#beame-infrastracture-overview)
  - [Easy Installation Instructions](#easy-installation-instructions)
- - [Getting Started - Mac](#getting-start---mac)
+ - [Getting Started - Mac](#getting-started---mac)
  - [Getting Started - Windows](#getting-started---windows)
  - [Common Uses for Beame SDK](#common-uses-for-beame-sdk)
  - [High Level Architecture](#HLA)
@@ -72,22 +72,25 @@ Before running `npm install -g beame-sdk` please make sure you have OpenSSL inst
 ### Upgrade npm: 
 `npm -g install npm@latest`
 
-### ( Install Perl from http://downloads.activestate.com/ActivePerl/releases/5.24.0.2400/ActivePerl-5.24.0.2400-MSWin32-x64-300558.exe or another source
-###   Perl is needed for building OpenSSL )
+### Install Perl 
+Get Perl from 
+`http://downloads.activestate.com/ActivePerl/releases/5.24.0.2400/ActivePerl-5.24.0.2400-MSWin32-x64-300558.exe`
+or another source 
+Perl is needed for building OpenSSL 
 
 ### Install OpenSSL:
- ( Download and extract https://www.openssl.org/source/openssl-1.0.1t.tar.gz ) 
- Using "Visual C++ 2015 x64 Native Build Tools Command Prompt" under C:\Program Files (x86)\Microsoft Visual C++ Build  `Tools\` in the OpenSSL directory
-    `perl Configure VC-WIN64A no-asm --prefix=C:\OpenSSL-Win64`
-    `.\ms\do_win64a.bat`
-    `nmake -f ms\ntdll.mak clean`
-    `nmake -f ms\ntdll.mak`
-    `nmake -f ms\ntdll.mak install`
+ Download and extract `https://www.openssl.org/source/openssl-1.0.1t.tar.gz`
+ Using "Visual C++ 2015 x64 Native Build Tools Command Prompt" under `C:\Program Files (x86)\Microsoft Visual C++` Build  `Tools\` in the OpenSSL directory 
+    `perl Configure VC-WIN64A no-asm --prefix=C:\OpenSSL-Win64` 
+    `.\ms\do_win64a.bat` 
+    `nmake -f ms\ntdll.mak clean` 
+    `nmake -f ms\ntdll.mak` 
+    `nmake -f ms\ntdll.mak install` 
 
-`npm install -g beame-sdk`
+`npm install -g beame-sdk` 
+
 ## Common Uses for Beame SDK 
 See the example folder to copy-paste and try it for yourself!  
-
 
  - Build your own networking application
  - Global, local, or hybrid socket.io chat over TLS
