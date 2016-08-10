@@ -34,6 +34,21 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
  - [Copy-paste example of https server with express support](#cp-simple)
 
 ***
+## Common Uses for Beame SDK 
+
+See the example folder to copy-paste and try it for yourself!  
+
+ - Build your own networking application
+ - Global, local, or hybrid socket.io chat over TLS
+ - Patient ID in clinics using mobile phone 
+ - BYOD in local networks (access behind NAT)
+ - Multi-factor authentication
+ - Check signatures of arbitrary data
+ - Encrypt arbitrary data so that only a specified entity can decrypt it
+ - Decrypt arbitrary data that was sent to one of the entities you own (encrypted with one of your public keys)
+ - Sign arbitrary data with any of your certificates 
+
+***
 ## System Requirements
 Mac OS or Windows 8.1 (or higher);
 NPM installed on your machine;
@@ -93,20 +108,6 @@ Perl is needed for building OpenSSL
     `nmake -f ms\ntdll.mak install` 
 
 `npm install -g beame-sdk` 
-***
-## Common Uses for Beame SDK 
-
-See the example folder to copy-paste and try it for yourself!  
-
- - Build your own networking application
- - Global, local, or hybrid socket.io chat over TLS
- - Patient ID in clinics using mobile phone 
- - BYOD in local networks (access behind NAT)
- - Multi-factor authentication
- - Check signatures of arbitrary data
- - Encrypt arbitrary data so that only a specified entity can decrypt it
- - Decrypt arbitrary data that was sent to one of the entities you own (encrypted with one of your public keys)
- - Sign arbitrary data with any of your certificates 
 
 ***
 ## High Level Architecture 
