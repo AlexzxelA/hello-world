@@ -109,7 +109,7 @@ See the example folder to copy-paste and try it for yourself!
  - Encrypt arbitrary data so that only a specified entity can decrypt it
  - Decrypt arbitrary data that was sent to one of the entities you own (encrypted with one of your public keys)
  - Sign arbitrary data with any of your certificates 
-********
+
 ********
 ## High Level Architecture 
 
@@ -162,7 +162,8 @@ CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, 
  - CMPS flow - process takes place on the Customer provisioning station, controls the whole process; 
  - Atom flow - background process controlled by Customer’s Atom; 
  - Client flow - process that takes place on the mobile device. Requires corresponding mobile Beame SDK services. 
- ****
+
+****
 
 ## Beame CLI
 
