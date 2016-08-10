@@ -26,10 +26,7 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
  - [Custom Client Provisioning Flow Chart](#custom-client-crovisioning-clow-chart)
  - [Beame CLI (credentials, running test server, encryption)](#beame-cli)
  - [Beame NodeJS API](#beame-nodejs-api)
- - [Beame Bash Shell](#beame-bash-shell)
- - [Beame SDK environment variables](#beame-sdk-environment-variables)
- - [Beame SDK data directory](#beame-sdk-data-directory)
- - [Copy-paste example of creation of full-stack of credentials and running of https server with express support](#cpfull)
+ - [Copy-paste example of full-stack of credentials and https server with express support](#sample-https-server---full)
  - [Copy-paste example of https server with express support](#cp-simple)
 
 ***
