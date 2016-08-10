@@ -1,4 +1,4 @@
-
+[beame](img/beame.jpg)
 
 
 _The Beame SDK provides tools that allow you to create credentials to identify machines and devices. It’s a simple way to use encryption-based identity in web and mobile applications. This transparent security infrastructure can be used in any network, global or local, to create credentials, bind them to users’ hardware, and get strong, crypto-based authentication. This mitigates risk for organizations or services that require users to prove identity._ 
