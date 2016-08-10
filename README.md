@@ -17,7 +17,6 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
 ## Table of Contents
  - [Common Uses for Beame SDK](#common-uses-for-beame-sdk)
  - [System Requirements](#system-requirements)
- - [Beame Infrastructure Overview](#beame-infrastructure-overview)
  - [Easy Installation Instructions](#easy-installation-instructions)
  - [Getting Started - Mac](#getting-started---mac)
  - [Getting Started - Windows](#getting-started---windows)
