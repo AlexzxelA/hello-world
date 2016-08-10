@@ -117,11 +117,11 @@ All routable nodes created with the Beame SDK are clients of Beame services. Fro
 
 ### Elements of the High Level Architecture
  - *Local Client* - hosts that are created with local IP
- - *Edge Client* - hosts that are accessible from the Internet, clients of Edge Servers
+ - *Edge Client* - hosts that are accessible from the Internet, clients of *Edge Servers*
  - *Clients* - actual end users (mobile devices)
  - *Customers* - owners of networks created with Beame Infrastructure (described below)
  - *Developer* - holder of credentials to directly request Beame provision services
- - *Atom* - application under developer, used as a master node for networks built with Beame Infrastructure
+ - *Atom* - application under *developer*, used as a master node for networks built with Beame Infrastructure
 
 ***
 
@@ -130,8 +130,8 @@ All routable nodes created with the Beame SDK are clients of Beame services. Fro
 Actions to employ: 
  - *Developer* registration using email-based procedure
  - Deployment of *Atom* as entity to control access permissions for all devices intended to be a part of the network (customers and clients)
- - Deployment of *Customer Edge Clients*. Each of the hosts, created on this step, shall be used as a Customer’s provisioning entry point. Any client that needs to be allowed into the network must undergo registration procedure as described below
- - Provisioning clients into Customer’s network
+ - Deployment of *Customer Edge Clients*. Each of the hosts, created on this step, shall be used as a Customer’s provisioning entry point. Any *client* that needs to be allowed into the network must undergo registration procedure as described below
+ - Provisioning *clients* into *Customer*’s network
 
 ***
 
@@ -174,7 +174,7 @@ The custom provisioning process uses the *Atom* as single authorization point.
 If you have completed the "Getting Started The Easy Way" above, and know how your future application will look, you can feel free to use all of what's described below. 
 At any moment, using beame-sdk, you can see all credentials you currently own by running: 
  - `beame creds show` 
-### Beame.io CLI - credentials
+### CLI - credentials
 
 The following commands are used for acquiring and manipulating certificates.
 
