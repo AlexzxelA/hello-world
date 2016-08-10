@@ -26,8 +26,7 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
  - [Custom Client Provisioning Flow Chart](#custom-client-crovisioning-clow-chart)
  - [Beame CLI (credentials, running test server, encryption)](#beame-cli)
  - [Beame NodeJS API](#beame-nodejs-api)
- - [Copy-paste example of full-stack of credentials and https server with express support](#sample-https-server---full)
- - [Copy-paste example of https server with express support](#cp-simple)
+ - [Examples of full-stack of credentials and https server with express support](#sample-https-server---full)
 
 ***
 ## Common Uses for Beame SDK 
@@ -229,7 +228,7 @@ To create new edgeClient under current atom:
 ```
 ***
 ## Sample HTTPS Server - Full
-Beame-sdk provides an example https server that allows Beame client to build and run fully a functional https server with express support and with credentials created in steps described above
+Beame-sdk provides sample https server, that allows Beame client to build and run fully a functional https server with express support and with credentials created in steps described above
 
 Export environment variable 'BEAME_PROJ_YOURPROJECTNAME' with value of edge-client-hostname (edgeClientFqdn)
 In your server main.js create your server with following command:
@@ -291,7 +290,7 @@ beameSDK.creds.createAtom(devHostname,appName, 1, function(data){
 9. Go to web brower and direct it to your new secure web server by copying https://*hostname* from console output  
 That's it. You have your own https server running on your local machine, accessible from anywhere in the world :)
 
-## Sample HTTPS server - short
+### Sample HTTPS server - short
 
 Below code snippet is actually a part of the larger code above. So it requires all needed installations (npm/express/beame-sdk/placing-html-files-in-*public*-folder) to be performed prior to run.  
 In order to see credentials that you have created, use `beame creds list` in terminal. *Hostname*, that is listed in row named *edgeclient* ,is the one, that you'll need to provide to *SampleBeameServer* as *hostname*.
