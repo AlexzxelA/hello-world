@@ -127,11 +127,11 @@ All routable nodes created with the Beame SDK are clients of Beame services. Fro
 
 ## Beame Network Infrastructure
 
-Actions:
-Developer registration using email-based procedure
-Deployment of Atom as entity to control access permissions for all devices intended to be a part of the network (customers and clients)
-Deployment of Customer Edge Clients. Each of the hosts, created on this step, shall be used as a Customer’s provisioning entry point. Any client that needs to be allowed into the network must undergo registration procedure as described below
-Provisioning clients into Customer’s network
+Actions to employ: 
+ - *Developer* registration using email-based procedure
+ - Deployment of *Atom* as entity to control access permissions for all devices intended to be a part of the network (customers and clients)
+ - Deployment of *Customer Edge Clients*. Each of the hosts, created on this step, shall be used as a Customer’s provisioning entry point. Any client that needs to be allowed into the network must undergo registration procedure as described below
+ - Provisioning clients into Customer’s network
 
 ***
 
@@ -139,11 +139,11 @@ Provisioning clients into Customer’s network
 
 ![provisioning workflow](img/ProvisioningClient.jpg)
 ***
-The custom provisioning process requires Customer to deploy Edge Clients with corresponding permissions under his internal security policy.
+The custom provisioning process requires *Customer* to deploy *Edge Clients* with corresponding permissions under his internal security policy. 
 
-The custom provisioning process uses the Atom as single authorization point.
+The custom provisioning process uses the *Atom* as single authorization point. 
 
-CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, during CMPS deployment, prior to the first run of the service.
+*CMPS* (Customer Managed Provisioning Server) credentials are pinned in the *Atom*, during *CMPS* deployment, prior to the first run of the service. 
 
 
 
@@ -158,9 +158,9 @@ CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, 
 ![provisioning flowchart](img/clientProvisionFlowchart.jpg)
 ****
 ### There are three interleaved flows in the provisioning process: 
- - CMPS flow - process takes place on the Customer provisioning station, controls the whole process; 
- - Atom flow - background process controlled by Customer’s Atom; 
- - Client flow - process that takes place on the mobile device. Requires corresponding mobile Beame SDK services. 
+ - *CMPS flow* - process takes place on the *Customer* provisioning station, controls the whole process; 
+ - *Atom flow* - background process controlled by Customer’s *Atom*; 
+ - *Client flow* - process that takes place on the mobile device. Requires corresponding mobile Beame SDK services. 
 
 ****
 ****
