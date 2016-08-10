@@ -15,14 +15,14 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
 
 ***
 ## Table of Contents
+ - [Common Uses for Beame SDK](#common-uses-for-beame-sdk)
  - [System Requirements](#system-requirements)
  - [Beame Infrastructure Overview](#beame-infrastructure-overview)
  - [Easy Installation Instructions](#easy-installation-instructions)
  - [Getting Started - Mac](#getting-started---mac)
  - [Getting Started - Windows](#getting-started---windows)
- - [Common Uses for Beame SDK](#common-uses-for-beame-sdk)
- - [High Level Architecture](#HLA)
- - [Beame Network Infrastructure](#network-structure)
+ - [High Level Architecture](#high-level-architecture)
+ - [Beame Network Infrastructure](#beame-network-infrastructure)
  - [Customizable Provisioning Workflow](#provision-workflow)
  - [Custom Client Provisioning Flow Chart](#provision-flowchart)
  - [Beame CLI (credentials, running test server, encryption)](#cli)
