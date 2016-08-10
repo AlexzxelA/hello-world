@@ -138,7 +138,7 @@ Actions to employ:
 
 ![provisioning workflow](img/ProvisioningClient.jpg)
 ***
-The custom provisioning process requires *Customer* to deploy *Edge Clients* with corresponding permissions under his internal security policy. 
+The custom provisioning process requires *Customer* to deploy *Edge Clients* (*CMPS*s) with corresponding permissions under his internal security policy. 
 
 The custom provisioning process uses the *Atom* as single authorization point. 
 
