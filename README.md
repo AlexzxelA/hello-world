@@ -244,7 +244,8 @@ In your server main.js create your server with following command:
 *`appExpress` - express object. If you don't need express in your application, pass <null>  
 *`function(data,app){}` - callback, returned app - created http object
 ***
-## Copy-paste examples of creation of full-stack of credentials and running of https server with express support
+## Copy-paste examples
+***
 ## Steps to take before you run below code:
 
 1. Create web page with your preferred software (like Keynote -> export HTML on Mac).  
