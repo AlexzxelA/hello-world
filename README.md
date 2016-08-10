@@ -93,7 +93,7 @@ Perl is needed for building OpenSSL
     `nmake -f ms\ntdll.mak install` 
 
 `npm install -g beame-sdk` 
-
+***
 ## Common Uses for Beame SDK 
 
 See the example folder to copy-paste and try it for yourself!  
