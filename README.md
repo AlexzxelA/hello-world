@@ -13,6 +13,7 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
 2. Generate your private key locally;
 3. Get a matching certificate from Beame (signed by a root CA).
 
+***
 ## Table of Contents
  - [System Requirements](#system-requirements)
  - [Beame Infrastructure Overview](#beame-infrastructure-overview)
@@ -31,6 +32,7 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
  - [Beame SDK data directory](#data-dir)
  - [Copy-paste example of creation of full-stack of credentials and running of https server with express support](#cpfull)
  - [Copy-paste example of https server with express support](#cp-simple)
+
 ***
 ## System Requirements
 Mac OS or Windows 8.1 (or higher);
@@ -48,6 +50,11 @@ You will create three tiers of credentials (each with multiple components: RSA k
 3. Create your Client server credentials.  We call this level an Edge-Client. 
 
 ***
+Our extended demo (see `startFirstBeameNode`) has two features - chat, or file server: 
+ - To access the chat, just copy the URL to your browser. (By the way, you can freely send it to other people on other networks. The server is global and the TLS is real). 
+ - To access the file share function, open the `url/shared`. 
+
+***
 ## Getting Started - Mac 
 
  - Install the Beame SDK by running `npm install -g beame-sdk` 
@@ -55,11 +62,6 @@ You will create three tiers of credentials (each with multiple components: RSA k
  - Copy the command from the email. It should look like this: `beame creds createDeveloper --developerFqdn ndfxfyerylk6uvra.v1.beameio.net --uid 1d138bfc-4a37-48e7-a60d-0190037fda5f` 
  - Run `beame servers startFirstBeameNode` it will print out to you something that looks like this: 
 `Server started on https://fdddr5ggsyzhk6m8.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net this is a publicly accessible address` 
-
-***
-Our demo has two features, chat, or file server: 
- - To access the chat, just copy the URL to your browser. (By the way, you can freely send it to other people on other networks. The server is global and the TLS is real). 
- - To access the file share function, open the `url/shared`. 
 
 ***
 ## Getting Started - Windows 
