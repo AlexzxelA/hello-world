@@ -109,9 +109,12 @@ See the example folder to copy-paste and try it for yourself!
  - Encrypt arbitrary data so that only a specified entity can decrypt it
  - Decrypt arbitrary data that was sent to one of the entities you own (encrypted with one of your public keys)
  - Sign arbitrary data with any of your certificates 
-
+********
+********
 ## High Level Architecture 
 
+![high level architecture](img/SDKbuildingBlocks.jpg)
+****
 All routable nodes created with the Beame SDK are clients of Beame services. From the application perspective, they are HTTPS servers. 
 
 ### Elements of the High Level Architecture
@@ -121,7 +124,7 @@ All routable nodes created with the Beame SDK are clients of Beame services. Fro
  - *Customers* - owners of networks created with Beame Infrastructure (described below)
  - *Developer* - holder of credentials to directly request Beame provision services
  - *Atom* - application under developer, used as a master node for networks built with Beame Infrastructure
-
+*****
 
 ## Beame Network Infrastructure
 
@@ -131,11 +134,12 @@ Deployment of Atom as entity to control access permissions for all devices inten
 Deployment of Customer Edge Clients. Each of the hosts, created on this step, shall be used as a Customer’s provisioning entry point. Any client that needs to be allowed into the network must undergo registration procedure as described below
 Provisioning clients into Customer’s network
 
-
+***
 
 ## Customizable Provisioning Workflow
 
-
+![provisioning workflow](img/ProvisioningClient.jpg)
+***
 The custom provisioning process requires Customer to deploy Edge Clients with corresponding permissions under his internal security policy.
 
 The custom provisioning process uses the Atom as single authorization point.
@@ -149,16 +153,16 @@ CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, 
 
 
 
-
+*****
 ## Custom Client Provisioning Flow Chart
 
-
-
+![provisioning flowchart](img/clientProvisionFlowchart.jpg)
+****
 ### There are three interleaved flows in the provisioning process: 
  - CMPS flow - process takes place on the Customer provisioning station, controls the whole process; 
  - Atom flow - background process controlled by Customer’s Atom; 
  - Client flow - process that takes place on the mobile device. Requires corresponding mobile Beame SDK services. 
-
+ ****
 
 ## Beame CLI
 
