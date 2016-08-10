@@ -220,59 +220,31 @@ To create new edgeClient under current atom:
         //edge level hostname returned in: <data.hostname>
     });
 ```
-Beame SDK provides an example HTTPS server that allows a Beame client to build and run fully a functional https server with express support and with credentials created in steps described above 
-Export environment variable 'BEAME_PROJ_YOURPROJECTNAME' with value of edge-client-hostname (edgeClientFqdn) In your server main.js create your server with following command: 
+###Beame-sdk provides an example https server that allows Beame client to build and run fully a functional https server with express support and with credentials created in steps described above
+
+Export environment variable 'BEAME_PROJ_YOURPROJECTNAME' with value of edge-client-hostname (edgeClientFqdn)
+In your server main.js create your server with following command:
 ```
-       var BeameServer = beameSDK.BaseHttpsServer.SampleBeameServer(host, PROJECT_NAME, appExpress,
+    	var BeameServer = beameSDK.BaseHttpsServer.SampleBeameServer(host, PROJECT_NAME, appExpress,
         function (data, app) {
             //your code
         });
 ```
+### Input parameters:
+*`host` - edge hostName (pass <null> if you use environment variable - see below)  
+*`PROJECT_NAME` - name of environment variable that contains edgeClient hostname (pass <null> if you provided full hostname in first parameter)  
+*`appExpress` - express object. If you don't need express in your application, pass <null>  
+*`function(data,app){}` - callback, returned app - created http object
 
-**Input parameters:**
-*host - edge hostName (pass if you use environment variable - see below) 
-*PROJECT_NAME - name of environment variable that contains edgeClient hostname (pass if you provided full hostname in first parameter) 
-*appExpress - express object. If you don't need express in your application, pass 
-*function(data,app){} - callback, returned app - created http object
-## Beame SDK Bash shell 
-Bash completion is available, run beame to see instructions. 
-If current shell version does not support auto completion, please follow instructions below (mostly relevant for MacOS):
-First ensure that your bash version is 4.3 or higher (echo $BASH_VERSION). If not - upgrade it. Take care to replace 4.3.46 from snippets below by your new bash version: 
-`brew update && brew install bash`
-Add new shell to available shells:
-`sudo bash -c 'echo /usr/local/Cellar/bash/4.3.46/bin/bash >> /etc/shells'`
-Change to the new shell:
-`chsh -s /usr/local/Cellar/bash/4.3.46/bin/bash`
-Open new terminal and run:
-`brew tap homebrew/versions`
-`brew rm bash-completion`
-`brew install bash-completion2`
+# Copy-paste example of creation of full-stack of credentials and running of https server with express support
+## Steps to take before you run below code:
 
-
-Add following instructions to your .bashrc file (if you don't have .bash_profile in your Home directory, create one :)
-```
-if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
-    . $(brew --prefix)/share/bash-completion/bash_completion
-fi
-
-source /usr/local/lib/node_modules/beame-sdk/src/cli/completion.sh
-```
-
-Open new terminal and begin using beame-sdk cli with auto-completion. 
-
-## Beame SDK environment variables
-BEAME_DIR (defaults to ~/.beame) - Beame SDK data directory - all created credentials 
-
-## Beame SDK data directory
-The structure of the Beame data folder is an implementation detail. You should not work with it directly. Use provided APIs or CLI to store and retrieve the data. 
-## Copy-paste example of creation of full-stack of credentials and running of https server with express support
-Steps to take before you run below code: 
-Create web page with your preferred software (like Keynote -> export HTML on Mac). 
-Store your new web page in public folder in directory of your future web server. 
-Run npm init in project directory (enter to all options that npm asks) 
-In same location install `npm install beame-sdk --save`
-Install express package by `npm install express --save`
-Create index.js and copy-paste into it code below.
+1. Create web page with your preferred software (like Keynote -> export HTML on Mac).  
+2. Store your new web page in `public` folder in directory of your future web server.  
+3. Run `npm init` in project directory (*enter* to all options that *npm* asks)  
+4. In same location install `npm install beame-sdk --save`  
+5. Install *express* package by `npm install express --save`   
+6. Create index.js and copy-paste into it code below.
 ```
 "use strict";
 var beameSDK = require ("beame-sdk");
@@ -294,24 +266,27 @@ var runTestBeameServer = function(){
 };
 
 beameSDK.creds.createAtom(devHostname,appName, 1, function(data){
-    console.log('Just created atom with host:'+data.hostname);
-    beameSDK.creds.createEdgeClient(data.hostname, 1, function(edgeData){
-        edgeHostname = edgeData.hostname;
-        console.log('Congrats! My new hostname is: '+ edgeHostname);
-        setTimeout(runTestBeameServer, 2000);//JIC - wait dns to update
-    });
+	console.log('Just created atom with host:'+data.hostname);
+	beameSDK.creds.createEdgeClient(data.hostname, 1, function(edgeData){
+		edgeHostname = edgeData.hostname;
+		console.log('Congrats! My new hostname is: '+ edgeHostname);
+		setTimeout(runTestBeameServer, 2000);//JIC - wait dns to update
+	});
 });
 ```
+7. Run it with `node index.js`  
+8. In console output you will see something like:  
+`Server started on: https://h3a6ipg1jz95x35n.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net`
+`{ Hostname: 'h3a6ipg1jz95x35n.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net' }`  
 
-Run it with `node index.js`
-In console output you will see something like: 
-Server started on: https://h3a6ipg1jz95x35n.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net { Hostname: 'h3a6ipg1jz95x35n.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net' } 
-Go to web browser and direct it to your new secure web server by copying https://hostname from console output
-That's it. You have your own https server running on your local machine, accessible from anywhere in the world :) 
-## Copy-paste example of https server with express support 
-Below code snippet is actually a part of the larger code above. So it requires all needed installations (npm/express/beame-sdk/placing-html-files-in-public-folder) to be performed prior to run. 
+9. Go to web brower and direct it to your new secure web server by copying https://*hostname* from console output  
+That's it. You have your own https server running on your local machine, accessible from anywhere in the world :)
 
-In order to see credentials that you have created, use beame creds list in terminal. Hostname, listed in row named edgeclient, is the one that you'll need to provide to SampleBeameServer as hostname. 
+#Copy-paste example of https server with express support
+
+Below code snippet is actually a part of the larger code above. So it requires all needed installations (npm/express/beame-sdk/placing-html-files-in-*public*-folder) to be performed prior to run.  
+In order to see credentials that you have created, use `beame creds list` in terminal. *Hostname*, that is listed in row named *edgeclient* ,is the one, that you'll need to provide to *SampleBeameServer* as *hostname*.
+
 ```
 "use strict";
 var beameSDK = require ("beame-sdk");
@@ -327,19 +302,3 @@ var runTestBeameServer = function(){
 };
 runTestBeameServer();
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
