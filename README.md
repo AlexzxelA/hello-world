@@ -24,7 +24,7 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
  - [Beame Network Infrastructure](#beame-network-infrastructure)
  - [Customizable Provisioning Workflow](#provision-workflow)
  - [Custom Client Provisioning Flow Chart](#provision-flowchart)
- - [Beame CLI (credentials, running test server, encryption)](#cli)
+ - [Beame CLI (credentials, running test server, encryption)](#beame-cli)
  - [Beame NodeJS API](#nodejs-api)
  - [Beame Bash Shell](#bash)
  - [Beame SDK environment variables](#env-var)
@@ -57,7 +57,7 @@ For Mac: Click here to for instructions if current shell version does not suppor
 ***
 
 ## Easy Installation Instructions
-You will create three tiers of credentials (each with multiple components: RSA key pair, a hostname under Beame.io's domain, and a matching publicly trusted x509 certificate).
+You will create three tiers of credentials (each with multiple components: RSA key pair, a hostname under Beame.io's domain, and a matching publicly trusted x509 certificate). If you want to skip all intro, [jump directly to action](#beame-cli)
 
 1. First, generate your Developer credentials.
 2. Second, generate application credentials. We call this level an Atom.  
@@ -186,7 +186,7 @@ The following commands are used for acquiring and manipulating certificates.
 * `beame creds renew [--type {developer|atom|edgeclient}] [--fqdn fqdn]`
 * `beame creds purge [--type {developer|atom|edgeclient}] [--fqdn fqdn]`
 
-### Beame.io CLI - running test server
+### Running test server
 
 * `beame servers HttpsServerTestStart --edgeClientFqdn edgeClientFqdn` - run a HTTPS server for the specified hostname
 * `beame.js servers startFirstBeameNode [--sharedFolder sharedFolder]` - run chat example for first hostname in creds list
