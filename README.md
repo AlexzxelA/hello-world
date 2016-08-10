@@ -229,7 +229,7 @@ To create new edgeClient under current atom:
     });
 ```
 ***
-## Sample HTTPS Server - Full
+## Sample HTTPS Server
 Beame-sdk provides sample https server, that allows Beame client to build and run fully a functional https server with express support and with credentials created in steps described above
 
 Export environment variable 'BEAME_PROJ_YOURPROJECTNAME' with value of edge-client-hostname (edgeClientFqdn)
