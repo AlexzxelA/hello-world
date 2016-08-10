@@ -165,7 +165,10 @@ CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, 
 ****
 ****
 ****
-# Mastering Beame-SDK
+# Mastering the Beame-SDK
+***
+***
+***
 ## Beame CLI
 
 If you have completed the "Getting Started The Easy Way" above, and know how your future application will look, you can feel free to use all of what's described below. 
