@@ -23,7 +23,7 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
  - [High Level Architecture](#high-level-architecture)
  - [Beame Network Infrastructure](#beame-network-infrastructure)
  - [Customizable Provisioning Workflow](#customizable-provisioning-workflow)
- - [Custom Client Provisioning Flow Chart](#custom-client-crovisioning-clow-chart)
+ - [Custom Client Provisioning Flow Chart](#custom-client-provisioning-flow-chart)
  - [Beame CLI (credentials, running test server, encryption)](#beame-cli)
  - [Beame NodeJS API](#beame-nodejs-api)
  - [Examples of full-stack of credentials and https server with express support](#sample-https-server)
@@ -131,7 +131,7 @@ Actions to employ:
 
 ***
 
-## Customizable Provisioning Workflow
+## Custom Provisioning Workflow
 
 ![provisioning workflow](img/ProvisioningClient.jpg)
 ***
