@@ -165,26 +165,32 @@ CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, 
 If you have completed the "Getting Started The Easy Way" above, you can feel free to use all of what's described below. 
 At any moment, using beame-sdk, you can see all credentials you currently own by running: 
 `beame creds show` 
-### Beame CLI - Credentials 
-The following commands are used for acquiring and manipulating certificates. 
-`beame creds list [--type {developer|atom|edgeclient}] [--fqdn fqdn] [--format {text|json}]` - list certificates
-`beame creds show [--type {developer|atom|edgeclient}] [--fqdn fqdn] [--format {text|json}]` - show certificate details
-`beame creds createAtom --developerFqdn developerFqdn --atomName atomName [--format {text|json}]` - create atomentity under current developer
-`beame creds createEdgeClient --atomFqdn atomFqdn [--format {text|json}]` - create edge client entity under the given atom
-`beame creds createLocalClient --atomFqdn atomFqdn [--count count] --edgeClientFqdn edgeClientFqdn [--format {text|json}]` - create local client entity under the given atom paired to existing edge client
-`beame creds renew [--type {developer|atom|edgeclient}] [--fqdn fqdn]`
-`beame creds purge [--type {developer|atom|edgeclient}] [--fqdn fqdn]`
-### Beame CLI - Running test server
-`beame servers HttpsServerTestStart --edgeClientFqdn edgeClientFqdn` - run a HTTPS server for the specified hostname
-`beame.js servers startFirstBeameNode [--sharedFolder sharedFolder]` - run chat example for first hostname in creds list
-`beame.js servers startBeameNode [--sharedFolder sharedFolder] --edgeClientFqdn edgeClientFqdn` - run chat example for the specified hostname
-### Beame CLI - Encryption
-`beame crypto encrypt [--data data] [--fqdn fqdn]` - encrypts the given data so that only the owner of the specified entity can decrypt it
-`beame crypto decrypt [--fqdn fqdn] [--data data]` - decrypts the given data. You must be the owner of the given entity
-`beame crypto sign [--data data] [--fqdn fqdn]` - signs the given data as the specified entity
-`beame crypto checkSignature [--fqdn fqdn] [--data data]` --signature signature - verifies the correctness of the signature
-### Beame NodeJS API 
-See also JsDoc generated documentation
+### Beame.io CLI - credentials
+
+The following commands are used for acquiring and manipulating certificates.
+
+* `beame creds list [--type {developer|atom|edgeclient}] [--fqdn fqdn] [--format {text|json}]` - list certificates
+* `beame creds show [--type {developer|atom|edgeclient}] [--fqdn fqdn] [--format {text|json}]` - show certificate details
+* `beame creds createAtom --developerFqdn developerFqdn --atomName atomName [--format {text|json}]` - create *atom* entity under current *developer*
+* `beame creds createEdgeClient --atomFqdn atomFqdn [--format {text|json}]` - create *edge client* entity under the given *atom*
+* `beame creds createLocalClient --atomFqdn atomFqdn [--count count] --edgeClientFqdn edgeClientFqdn [--format {text|json}]` - create *local client* entity under the given atom paired to existing *edge client*
+* `beame creds renew [--type {developer|atom|edgeclient}] [--fqdn fqdn]`
+* `beame creds purge [--type {developer|atom|edgeclient}] [--fqdn fqdn]`
+
+### Beame.io CLI - running test server
+
+* `beame servers HttpsServerTestStart --edgeClientFqdn edgeClientFqdn` - run a HTTPS server for the specified hostname
+* `beame.js servers startFirstBeameNode [--sharedFolder sharedFolder]` - run chat example for first hostname in creds list
+* `beame.js servers startBeameNode [--sharedFolder sharedFolder] --edgeClientFqdn edgeClientFqdn` - run chat example for the specified hostname
+### Beame.io CLI - encryption
+
+* `beame crypto encrypt [--data data] [--fqdn fqdn]` - encrypts the given data so that only the owner of the specified entity can decrypt it
+* `beame crypto decrypt [--fqdn fqdn] [--data data]` - decrypts the given data. You must be the owner of the given entity
+* `beame crypto sign [--data data] [--fqdn fqdn]` - signs the given data as the specified entity
+* `beame crypto checkSignature [--fqdn fqdn] [--data data] --signature signature` - verifies the correctness of the signature
+
+## Beame NodeJS API 
+[See also JsDoc generated documentation](https://beameio.github.io/beame-sdk/index.html)
 
 _The idea behind the Node.js SDK APIs is that you can employ Beame CLI functionality in your own Node.js project._ 
 
