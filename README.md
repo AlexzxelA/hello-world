@@ -71,10 +71,10 @@ Our demo has two features, chat, or file server:
 Before running `npm install -g beame-sdk` please make sure you have OpenSSL installed in `C:\OpenSSL-Win64` . 
 One of the possible ways of installing OpenSSL is described below. The procedure was tested on Microsoft Windows Server 2012 R2 Standard . 
 
-### Install Visual C++ Build Tools and Python 2.7: 
+### Install Visual C++ Build Tools and Python 2.7 
 `npm install --global --production windows-build-tools`
 
-### Upgrade npm: 
+### Upgrade npm 
 `npm -g install npm@latest`
 
 ### Install Perl 
@@ -83,7 +83,7 @@ Get Perl from
 or another source 
 Perl is needed for building OpenSSL 
 
-### Install OpenSSL: 
+### Install OpenSSL 
  Download and extract `https://www.openssl.org/source/openssl-1.0.1t.tar.gz` 
  Using "Visual C++ 2015 x64 Native Build Tools Command Prompt" under 
  `C:\Program Files (x86)\Microsoft Visual C++` 
@@ -114,7 +114,7 @@ See the example folder to copy-paste and try it for yourself!
 
 All routable nodes created with the Beame SDK are clients of Beame services. From the application perspective, they are HTTPS servers. 
 
-### Elements of the High Level Architecture:
+### Elements of the High Level Architecture
  - *Local Client* - hosts that are created with local IP
  - *Edge Client* - hosts that are accessible from the Internet, clients of Edge Servers
  - *Clients* - actual end users (mobile devices)
@@ -133,7 +133,7 @@ Provisioning clients into Customer’s network
 
 
 
-## Customizable Provisioning Workflow:
+## Customizable Provisioning Workflow
 
 
 The custom provisioning process requires Customer to deploy Edge Clients with corresponding permissions under his internal security policy.
@@ -150,7 +150,7 @@ CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, 
 
 
 
-## Custom Client Provisioning Flow Chart:
+## Custom Client Provisioning Flow Chart
 
 
 
