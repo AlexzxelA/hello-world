@@ -200,7 +200,7 @@ The following commands are used for acquiring and manipulating certificates.
 
 ***
 ## Beame NodeJS API 
-[See also JsDoc generated documentation](https://beameio.github.io/beame-sdk/index.html)
+[Extended JsDoc generated documentation - here](https://beameio.github.io/beame-sdk/index.html)
 
 _The idea behind the Node.js SDK APIs is that you can employ Beame CLI functionality in your own Node.js project._ 
 
@@ -214,7 +214,7 @@ To use any API from beame-sdk include
 `var beameSDK = require ("beame-sdk");`
 ***
 
-### Atom-level commands
+### Atom level commands
 Requires developer credentials (developer fqdn/hostname) + atomName (your application name) 
 To create new atom under current developer: 
 ```   
@@ -222,7 +222,7 @@ To create new atom under current developer:
         //atom level hostname returned in: <data.hostname>
     });
  ```
-### edgeClient level commands
+### Edge Client level commands
 Requires atom credentials (atom fqdn/hostname). atomHostName - app level hostname created in previous step 
 To create new edgeClient under current atom: 
 ```
