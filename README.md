@@ -64,7 +64,7 @@ You will create three tiers of credentials (each with multiple components: RSA k
 3. Create your Client server credentials.  We call this level an Edge-Client. 
 
 ***
-Our extended demo (see `startFirstBeameNode`) has two features - chat, or file server: 
+Our extended demo ([see `startFirstBeameNode`](#running-test-server)) has two features - chat, or file server: 
  - To access the chat, just copy the URL to your browser. (By the way, you can freely send it to other people on other networks. The server is global and the TLS is real). 
  - To access the file share function, open the `url/shared`. 
 
