@@ -163,12 +163,14 @@ CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, 
  - Client flow - process that takes place on the mobile device. Requires corresponding mobile Beame SDK services. 
 
 ****
-
+****
+****
+# Mastering Beame-SDK
 ## Beame CLI
 
-If you have completed the "Getting Started The Easy Way" above, you can feel free to use all of what's described below. 
+If you have completed the "Getting Started The Easy Way" above, and know how your future application will look, you can feel free to use all of what's described below. 
 At any moment, using beame-sdk, you can see all credentials you currently own by running: 
-`beame creds show` 
+ - `beame creds show` 
 ### Beame.io CLI - credentials
 
 The following commands are used for acquiring and manipulating certificates.
