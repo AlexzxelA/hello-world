@@ -1,6 +1,4 @@
-[beame](img/beame.jpg)
-
-
+<img align="right" src="img/beame.png">
 _The Beame SDK provides tools that allow you to create credentials to identify machines and devices. It’s a simple way to use encryption-based identity in web and mobile applications. This transparent security infrastructure can be used in any network, global or local, to create credentials, bind them to users’ hardware, and get strong, crypto-based authentication. This mitigates risk for organizations or services that require users to prove identity._ 
 
 ###**By deploying your network using Beame infrastructure, you can:**
@@ -15,45 +13,58 @@ _The Beame SDK provides tools that allow you to create credentials to identify m
 2. Generate your private key locally;
 3. Get a matching certificate from Beame (signed by a root CA).
 
+***
 ## Table of Contents
- - [System Requirements](#system-sequirements)
- - [Beame Infrastructure Overview](#beame-infrastructure-overview)
+ - [Common Uses for Beame SDK](#common-uses-for-beame-sdk)
+ - [System Requirements](#system-requirements)
  - [Easy Installation Instructions](#easy-installation-instructions)
  - [Getting Started - Mac](#getting-started---mac)
  - [Getting Started - Windows](#getting-started---windows)
- - [Common Uses for Beame SDK](#common-uses-for-beame-sdk)
- - [High Level Architecture](#HLA)
- - [Beame Network Infrastructure](#network-structure)
- - [Customizable Provisioning Workflow](#provision-workflow)
- - [Custom Client Provisioning Flow Chart](#provision-flowchart)
- - [Beame CLI (credentials, running test server, encryption)](#cli)
- - [Beame NodeJS API](#nodejs-api)
- - [Beame Bash Shell](#bash)
- - [Beame SDK environment variables](#env-var)
- - [Beame SDK data directory](#data-dir)
- - [Copy-paste example of creation of full-stack of credentials and running of https server with express support](#cpfull)
- - [Copy-paste example of https server with express support](#cp-simple)
+ - [High Level Architecture](#high-level-architecture)
+ - [Beame Network Infrastructure](#beame-network-infrastructure)
+ - [Custom Provisioning Workflow](#custom-provisioning-workflow)
+ - [Custom Client Provisioning Flow Chart](#custom-client-provisioning-flow-chart)
+ - [Beame CLI (credentials, running test server, encryption)](#beame-cli)
+ - [Beame NodeJS API](#beame-nodejs-api)
+ - [Examples of full-stack of credentials and https server with express support](#sample-https-server)
 
+***
+## Common Uses for Beame SDK 
+
+See the example folder to copy-paste and try it for yourself!  
+
+ - Build your own networking application
+ - Global, local, or hybrid socket.io chat over TLS
+ - Patient ID in clinics using mobile phone 
+ - BYOD in local networks (access behind NAT)
+ - Multi-factor authentication
+ - Check signatures of arbitrary data
+ - Encrypt arbitrary data so that only a specified entity can decrypt it
+ - Decrypt arbitrary data that was sent to one of the entities you own (encrypted with one of your public keys)
+ - Sign arbitrary data with any of your certificates 
+
+***
 ## System Requirements
 Mac OS or Windows 8.1 (or higher);
 NPM installed on your machine;
 For Mac: Click here to for instructions if current shell version does not support auto-completion. 
 
 
-
-## Beame Infrastructure Overview
-
-
-
-
+***
 
 ## Easy Installation Instructions
-You will create three tiers of credentials (each with multiple components: RSA key pair, a hostname under Beame.io's domain, and a matching publicly trusted x509 certificate).
+You will create three tiers of credentials (each with multiple components: RSA key pair, a hostname under Beame.io's domain, and a matching publicly trusted x509 certificate). If you want to skip all intro, [jump directly to action](#beame-cli)
 
 1. First, generate your Developer credentials.
 2. Second, generate application credentials. We call this level an Atom.  
 3. Create your Client server credentials.  We call this level an Edge-Client. 
 
+***
+Our extended demo ([see it here](#running-test-server)) has two features - chat, or file server: 
+ - To access the chat, just copy the URL to your browser. (By the way, you can freely send it to other people on other networks. The server is global and the TLS is real). 
+ - To access the file share function, open the `url/shared`. 
+
+***
 ## Getting Started - Mac 
 
  - Install the Beame SDK by running `npm install -g beame-sdk` 
@@ -62,10 +73,7 @@ You will create three tiers of credentials (each with multiple components: RSA k
  - Run `beame servers startFirstBeameNode` it will print out to you something that looks like this: 
 `Server started on https://fdddr5ggsyzhk6m8.v1.r.p.edge.eu-central-1b-1.v1.p.beameio.net this is a publicly accessible address` 
 
-Our demo has two features, chat, or file server: 
- - To access the chat, just copy the URL to your browser. (By the way, you can freely send it to other people on other networks. The server is global and the TLS is real). 
- - To access the file share function, open the `url/shared`. 
-
+***
 ## Getting Started - Windows 
 
 Before running `npm install -g beame-sdk` please make sure you have OpenSSL installed in `C:\OpenSSL-Win64` . 
@@ -95,56 +103,48 @@ Perl is needed for building OpenSSL
     `nmake -f ms\ntdll.mak install` 
 
 `npm install -g beame-sdk` 
-
-## Common Uses for Beame SDK 
-
-See the example folder to copy-paste and try it for yourself!  
-
- - Build your own networking application
- - Global, local, or hybrid socket.io chat over TLS
- - Patient ID in clinics using mobile phone 
- - BYOD in local networks (access behind NAT)
- - Multi-factor authentication
- - Check signatures of arbitrary data
- - Encrypt arbitrary data so that only a specified entity can decrypt it
- - Decrypt arbitrary data that was sent to one of the entities you own (encrypted with one of your public keys)
- - Sign arbitrary data with any of your certificates 
-
-********
+***
+***
+#Beame.io Networking Solution Overview
+***
+***
 ## High Level Architecture 
 
 ![high level architecture](img/SDKbuildingBlocks.jpg)
-****
+***
 All routable nodes created with the Beame SDK are clients of Beame services. From the application perspective, they are HTTPS servers. 
 
 ### Elements of the High Level Architecture
  - *Local Client* - hosts that are created with local IP
- - *Edge Client* - hosts that are accessible from the Internet, clients of Edge Servers
+ - *Edge Client* - hosts that are accessible from the Internet, clients of *Edge Servers*
  - *Clients* - actual end users (mobile devices)
  - *Customers* - owners of networks created with Beame Infrastructure (described below)
  - *Developer* - holder of credentials to directly request Beame provision services
- - *Atom* - application under developer, used as a master node for networks built with Beame Infrastructure
-*****
+ - *Atom* - application under *developer*, used as a master node for networks built with Beame Infrastructure
+
+***
 
 ## Beame Network Infrastructure
 
-Actions:
-Developer registration using email-based procedure
-Deployment of Atom as entity to control access permissions for all devices intended to be a part of the network (customers and clients)
-Deployment of Customer Edge Clients. Each of the hosts, created on this step, shall be used as a Customer’s provisioning entry point. Any client that needs to be allowed into the network must undergo registration procedure as described below
-Provisioning clients into Customer’s network
+Actions to employ: 
+ - *Developer* registration using email-based procedure
+ - Deployment of *Atom* as entity to control access permissions for all devices intended to be a part of the network (customers and clients)
+ - Deployment of *Customer Edge Clients*. Each of the hosts, created on this step, shall be used as a Customer’s provisioning entry point. Any *client* that needs to be allowed into the network must undergo registration procedure as described below
+ - Provisioning *clients* into *Customer*’s network
 
 ***
 
-## Customizable Provisioning Workflow
+## Custom Provisioning Workflow
 
 ![provisioning workflow](img/ProvisioningClient.jpg)
 ***
-The custom provisioning process requires Customer to deploy Edge Clients with corresponding permissions under his internal security policy.
+*CMPS* (Customer Managed Provisioning Server) credentials are pinned in the *Atom*, during *CMPS* deployment, prior to the first run of the service. 
 
-The custom provisioning process uses the Atom as single authorization point.
+The custom provisioning process requires *Customer* to deploy *Edge Clients* (*CMPS*s) with corresponding permissions under his internal security policy. 
 
-CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, during CMPS deployment, prior to the first run of the service.
+The custom provisioning process uses the *Atom* as single authorization point. 
+
+
 
 
 
@@ -159,18 +159,24 @@ CMPS (Customer Managed Provisioning Server) credentials are pinned in the Atom, 
 ![provisioning flowchart](img/clientProvisionFlowchart.jpg)
 ****
 ### There are three interleaved flows in the provisioning process: 
- - CMPS flow - process takes place on the Customer provisioning station, controls the whole process; 
- - Atom flow - background process controlled by Customer’s Atom; 
- - Client flow - process that takes place on the mobile device. Requires corresponding mobile Beame SDK services. 
+ - *CMPS flow* - process takes place on the *Customer* provisioning station, controls the whole process; 
+ - *Atom flow* - background process controlled by Customer’s *Atom*; 
+ - *Client flow* - process that takes place on the mobile device. Requires corresponding mobile Beame SDK services. 
 
 ****
-
+****
+****
+# Mastering the Beame-SDK
+***
+***
+***
 ## Beame CLI
 
-If you have completed the "Getting Started The Easy Way" above, you can feel free to use all of what's described below. 
+If you have completed the "Getting Started The Easy Way" above, and know how your future application will look, you can feel free to use all of what's described below. 
 At any moment, using beame-sdk, you can see all credentials you currently own by running: 
-`beame creds show` 
-### Beame.io CLI - credentials
+ - `beame creds show` 
+
+### CLI - credentials
 
 The following commands are used for acquiring and manipulating certificates.
 
@@ -182,11 +188,12 @@ The following commands are used for acquiring and manipulating certificates.
 * `beame creds renew [--type {developer|atom|edgeclient}] [--fqdn fqdn]`
 * `beame creds purge [--type {developer|atom|edgeclient}] [--fqdn fqdn]`
 
-### Beame.io CLI - running test server
+### Running test server
 
 * `beame servers HttpsServerTestStart --edgeClientFqdn edgeClientFqdn` - run a HTTPS server for the specified hostname
 * `beame.js servers startFirstBeameNode [--sharedFolder sharedFolder]` - run chat example for first hostname in creds list
 * `beame.js servers startBeameNode [--sharedFolder sharedFolder] --edgeClientFqdn edgeClientFqdn` - run chat example for the specified hostname
+
 ### Beame.io CLI - encryption
 
 * `beame crypto encrypt [--data data] [--fqdn fqdn]` - encrypts the given data so that only the owner of the specified entity can decrypt it
@@ -194,8 +201,9 @@ The following commands are used for acquiring and manipulating certificates.
 * `beame crypto sign [--data data] [--fqdn fqdn]` - signs the given data as the specified entity
 * `beame crypto checkSignature [--fqdn fqdn] [--data data] --signature signature` - verifies the correctness of the signature
 
+***
 ## Beame NodeJS API 
-[See also JsDoc generated documentation](https://beameio.github.io/beame-sdk/index.html)
+[Extended JsDoc generated documentation - here](https://beameio.github.io/beame-sdk/index.html)
 
 _The idea behind the Node.js SDK APIs is that you can employ Beame CLI functionality in your own Node.js project._ 
 
@@ -207,9 +215,9 @@ Be aware that API on each level requires credentials created on previous/higher 
 
 To use any API from beame-sdk include 
 `var beameSDK = require ("beame-sdk");`
+***
 
-
-### Atom-level commands
+### Atom level commands
 Requires developer credentials (developer fqdn/hostname) + atomName (your application name) 
 To create new atom under current developer: 
 ```   
@@ -217,7 +225,7 @@ To create new atom under current developer:
         //atom level hostname returned in: <data.hostname>
     });
  ```
-### edgeClient level commands
+### Edge Client level commands
 Requires atom credentials (atom fqdn/hostname). atomHostName - app level hostname created in previous step 
 To create new edgeClient under current atom: 
 ```
@@ -225,8 +233,9 @@ To create new edgeClient under current atom:
         //edge level hostname returned in: <data.hostname>
     });
 ```
-## Sample HTTPS Server - Full
-Beame-sdk provides an example https server that allows Beame client to build and run fully a functional https server with express support and with credentials created in steps described above
+***
+## Sample HTTPS Server
+Beame-sdk provides sample https server, that allows Beame client to build and run fully a functional https server with express support and with credentials created in steps described above
 
 Export environment variable 'BEAME_PROJ_YOURPROJECTNAME' with value of edge-client-hostname (edgeClientFqdn)
 In your server main.js create your server with following command:
@@ -241,8 +250,9 @@ In your server main.js create your server with following command:
 *`PROJECT_NAME` - name of environment variable that contains edgeClient hostname (pass <null> if you provided full hostname in first parameter)  
 *`appExpress` - express object. If you don't need express in your application, pass <null>  
 *`function(data,app){}` - callback, returned app - created http object
-
-# Copy-paste example of creation of full-stack of credentials and running of https server with express support
+***
+## Copy-paste examples
+***
 ## Steps to take before you run below code:
 
 1. Create web page with your preferred software (like Keynote -> export HTML on Mac).  
@@ -288,7 +298,7 @@ beameSDK.creds.createAtom(devHostname,appName, 1, function(data){
 9. Go to web brower and direct it to your new secure web server by copying https://*hostname* from console output  
 That's it. You have your own https server running on your local machine, accessible from anywhere in the world :)
 
-## Sample HTTPS server - short
+### Sample HTTPS server - short
 
 Below code snippet is actually a part of the larger code above. So it requires all needed installations (npm/express/beame-sdk/placing-html-files-in-*public*-folder) to be performed prior to run.  
 In order to see credentials that you have created, use `beame creds list` in terminal. *Hostname*, that is listed in row named *edgeclient* ,is the one, that you'll need to provide to *SampleBeameServer* as *hostname*.
