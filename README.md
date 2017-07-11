@@ -19,7 +19,7 @@ Any users of remote access (RDP, VNC, SSH etc), web developers, web designers, a
 
 Step 1: Sign up super-fast [here!](https://ypxf72akb6onjvrq.ohkv8odznwh5jpwm.v1.p.beameio.net/insta-ssl)
 
-(if you use Windows, see [Windows System Requirements](#Windows System Requirements) below before Step 2)
+(if you use Windows, see [Windows System Requirements](#windows-system-requirements) below before Step 2)
 
 Step 2 for Mac/Linux: Run `sudo npm install -g beame-insta-ssl` (**please make sure you are using NodeJS version 6.9.X or newer**). Depending on your configuration you might want to run `npm install -g beame-insta-ssl` instead (if you are using [`n`](https://github.com/tj/n) or other methods for creating per-user NodejS installations).
 
