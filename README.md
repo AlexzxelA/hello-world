@@ -7,6 +7,14 @@ This is a free, open-source tool that allows you to expose securely a machine wi
 
 When using Beame.io, the private key never leaves your computer/server. Beame cannot look into your traffic. While, theoretically, Beame.io could issue a wildcard `*.beameio.net` certificate and terminate your traffic (which we don't do), this is preventable by checking certificate fingerprints.
 
+## Who is beame-insta-ssl for?
+
+Any users of remote access (RDP, VNC, SSH etc), web developers, web designers, anyone whose work product is displayed in a browser. 
+
+## What is the most common and valuable use case?
+ * I have to access my linux machine but company policy restricts exposing port 22 to the global network
+ * I am developing for iOS, and I want to test my web application against my backend code, but it is much more convenient for me to test locally. Beame allows me to expose my local development server to the mobile device with TLS terminated at my local workstation.
+
 ## Get started in three quick steps!
 
 Step 1: Sign up super-fast [here!](https://ypxf72akb6onjvrq.ohkv8odznwh5jpwm.v1.p.beameio.net/insta-ssl)
@@ -21,7 +29,7 @@ Step 3: Run the command in the sign up confirmation email you just got from us. 
 
 The certificate will be ready in moments and you can start using your tunnel right away. Truly a one-stop-shop!
 
-### Windows System Requirements <a name="Windows System Requirements"></a>
+### Windows System Requirements
 
 Before running `npm install -g beame-insta-ssl` please make sure you have OpenSSL installed in `C:\OpenSSL-Win64` . If you you already have OpenSSL installed at that location, skip the instructions below and just issue `npm install -g beame-insta-ssl`. If you don't have OpenSSL in `C:\OpenSSL-Win64`, one of the possible ways of installing OpenSSL is described below (Install Visual C++ Build Tools and Python 2.7, Upgrade NPM, Install Perl, Install OpenSSL). The procedure was tested on Microsoft Windows Server 2012 R2 Standard and Windows 10. We recommend to use your “Windows PowerShell” and run it with administrator rights for the following commands:
 
@@ -65,14 +73,6 @@ Using "Visual C++ 2015 x64 Native Build Tools Command Prompt" under `C:\Program 
 2. [Installing a Non-Terminating Tunnel to IIS on Windows](https://github.com/beameio/beame-insta-ssl/wiki/How-to-Install-a-Non-Terminating-Tunnel-to-IIS)
 
 
-## Who is beame-insta-ssl for?
-
-Any users of remote access (RDP, VNC, SSH etc), web developers, web designers, anyone whose work product is displayed in a browser. 
-
-## What is the most common and valuable use case?
- * I have to access my linux machine but company policy restricts exposing port 22 to the global network
- * I am developing for iOS, and I want to test my web application against my backend code, but it is much more convenient for me to test locally. Beame allows me to expose my local development server to the mobile device with TLS terminated at my local workstation.
-
 ## What is the difference between terminating and non-terminating?
 
 Terminating tunnel will make the insta-ssl terminate TLS for you (_on the machine that runs it_), the output into your server will be HTTP (unencrypted). Non-terminating is better, if you install _your_ application on different computer, but in such case your task will be to inject the cert into your server.
@@ -111,17 +111,19 @@ You can also specify particular Beame hostname to run a tunnel on, in case, for 
 	beame-insta-ssl tunnel make --dst 8008 --proto http --fqdn qwertyuio.asdfghjkl.v1.d.beameio.net
 
 
-###Insta-ssl for remote access with client-certificate authentication
+## Insta-ssl for remote access with client-certificate authentication
 In order to use beame-insta-ssl as a tunnel for remote access (e.g. SSH, VNC, RDP), define "proto" to "tcp" as in the example below:
 
 	beame-insta-ssl tunnel make --dst 3389 --proto tcp --fqdn rdpBeameHostname.v1.p.beameio.net --highestFqdn myhighest.trust.beameio.net --trustDepth 3
 
-In the example for RDP above, there's an access criteria defined by use of "highestFqdn" and "trustDepth" - if client certificate has any signing certificate below "highestFqdn" and itself is signed above required "trustDepth", it will be allowed to access.
+In the example for RDP above, there's an access criteria defined by use of `highestFqdn` and `trustDepth` - if client certificate has any signing certificate below `highestFqdn` and itself is signed above required `trustDepth`, it will be allowed to access.  
+You are allowed to skip `highestFqdn` and `trustDepth`, in such case the access will be granted to any credential that was signed _under_ your own certificate (take it as - to your _children_, their _children_ and so on, so that your credential is a top of the _trust tree_).  
+Now run a client to connect to the tunnel above:
 
 	beame-insta-ssl tunnelClient make --dst 3389 --fqdn myClientCert.v1.p.beameio.net --src rdpBeameHostname.v1.p.beameio.net
 
-To define the tunnel client, provide a valid certificate (satisfying the condition set by the host) and point it to the right hostname ("src" parameter).
-Now ensure that RDP server is running on target, run the RDP client (pre-configured with username and password) on the machine with client and you are done.
+To define the tunnel client, provide a valid certificate (satisfying the condition set by the host) and point it to the right hostname (`--src` parameter).  
+Ensure that RDP server is running on target, run the RDP client (pre-configured with username and password) on the machine with client and you are done.  
 
 SSH? Can't be easier, consider example below:
 
@@ -152,9 +154,9 @@ this will output long base64 string <BASE64_TOKEN>
 Target device:
 
     beame-insta-ssl creds getCreds --regToken <BASE64_TOKEN>
-This will print a log, that will end with: _Certificate created! Certificate FQDN is_ continued with your new cred's FQDN.
+This will print a log, that will end with: `Certificate created! Certificate FQDN is` continued with your new cred's FQDN.
     
-No just copy/paste that FQDN to the tunnelClient command for _--fqdn_ parameter.
+No just copy/paste that FQDN to the tunnelClient command for `--fqdn` parameter.
 
 ## Where is my Beame data stored?
 Credentials created by you are stored on your machine in `$HOME/.beame` folder. You can easily export them to the desired location, by using the `export` command that looks like this:
@@ -190,7 +192,7 @@ Connect using tunnel, traffic between Beame.io infrastructure and ssh server flo
 
 ## How much does it cost?
 
-Your first beame credential is free and will remain free forever.
+Your first beame credential is and will remain free.
 
 ## How do you guys make money?
 
@@ -200,7 +202,7 @@ Your first beame credential is free and will remain free forever.
 
 Beame-insta-ssl is distributed under Apache License 2.0, see LICENSE.pdf for details.
 
-How To Guides Coming soon:
+## How To Guides Coming soon:
 
 3. Tunneling to Apache with beame-insta-ssl (Mac, Windows, Linux)
 4. Tunneling to NGNIX with beame-insta-ssl (Mac, Windows, Linux)
